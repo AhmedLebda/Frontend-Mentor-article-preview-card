@@ -1,0 +1,247 @@
+/* Importing Font [Manrope] weights: 500, 700 */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+/* >>>>>>>>>>>>>>> Variables <<<<<<<<<<<<<<< */
+:root {
+    /* Fonts */
+    --font-manrope: "Manrope", sans-serif;
+
+    /* Colors */
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* >>>>>>>>>>>>>>> Global Styles <<<<<<<<<<<<<<< */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: var(--light-grayish-blue);
+    font-family: var(--font-manrope);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* >>>>>>>>>>>>>>> Card Styles [Mobile First] <<<<<<<<<<<<<<< */
+
+.card-wrapper {
+    max-width: 320px;
+    border-radius: 20px;
+    margin: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 5px var(--grayish-blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+/* >>>>>>>>>>>>>>> Image Styles <<<<<<<<<<<<<<< */
+.card-wrapper .img-wrapper {
+    height: 200px;
+    overflow: hidden;
+}
+.card-wrapper .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.card-wrapper:hover .img-wrapper img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 10px 30px 20px;
+}
+
+/* >>>>>>>>>>>>>>> Card Description Styles <<<<<<<<<<<<<<< */
+.card-discription {
+    margin-bottom: 40px;
+}
+.card-discription h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--very-dark-grayish-blue);
+    cursor: pointer;
+}
+.card-wrapper .card-discription p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--desaturated-dark-blue);
+}
+
+/* >>>>>>>>>>>>>>> Card Footer Styles <<<<<<<<<<<<<<< */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.author-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.author-wrapper img {
+    width: 20%;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.author-wrapper h2 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--very-dark-grayish-blue);
+    padding: 0;
+    margin-bottom: 5px;
+}
+.author-wrapper p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--very-dark-grayish-blue);
+    padding: 0;
+    margin: 0;
+}
+
+#share-btn {
+    padding: 7px;
+    border-radius: 50%;
+    background-color: var(--light-grayish-blue);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+#share-btn:hover {
+    background-color: hsl(210, 46%, 85%);
+}
+
+.social-media {
+    background-color: var(--very-dark-grayish-blue);
+    color: var(--grayish-blue);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: -30px;
+    right: -30px;
+    transform: translateY(100%);
+    transition: 0.25s;
+}
+.social-media p {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+.social-media img {
+    cursor: pointer;
+}
+
+.social-media.active {
+    transform: translateY(0);
+}
+
+/* >>>>>>>>>>>>>>> Desktop Styles <<<<<<<<<<<<<<< */
+
+@media screen and (min-width: 800px) {
+    .card-wrapper {
+        margin: 100px;
+        max-width: 750px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 250px minmax(350px, 450px);
+        overflow: visible;
+    }
+    /* >>>>>>>>>>>>>>> Image Styles <<<<<<<<<<<<<<< */
+    .card-wrapper .img-wrapper {
+        height: auto;
+        border-radius: 20px 0 0 20px;
+        overflow: hidden;
+    }
+    .card-wrapper .img-wrapper img {
+        object-position: left;
+    }
+
+    /* >>>>>>>>>>>>>>> Card Description Styles <<<<<<<<<<<<<<< */
+    .card-discription {
+        margin-bottom: 30px;
+    }
+    .card-discription h1 {
+        font-size: 1.2rem;
+    }
+    .card-wrapper .card-discription p {
+        font-size: 0.9rem;
+    }
+
+    /* >>>>>>>>>>>>>>> Card Footer Styles <<<<<<<<<<<<<<< */
+    .share {
+        position: relative;
+    }
+    .social-media {
+        padding: 20px;
+        position: absolute;
+        top: -30px;
+        left: -50%;
+        bottom: auto;
+        right: auto;
+        transform: translate(-40%, -100%) scale(0);
+        border-radius: 20px;
+    }
+    .social-media::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: var(--very-dark-grayish-blue);
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-30%) rotate(45deg);
+        z-index: -1;
+    }
+    .social-media p {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5rem;
+        padding: 0;
+        margin: 0;
+    }
+    .social-media img {
+        cursor: pointer;
+    }
+
+    .social-media.active {
+        transform: translate(-40%, -100%) scale(1);
+    }
+}
+
+/* >>>>>>>>>>>>>>> Very Small Screens Styles <<<<<<<<<<<<<<< */
+@media screen and (max-width: 375px) {
+    .card-wrapper {
+        margin: 30px 5px;
+    }
+    .social-media {
+        gap: 10px;
+    }
+    .social-media img {
+        max-width: 20px;
+    }
+    .author-wrapper h2 {
+        font-size: 0.8rem;
+    }
+    #share-btn {
+        padding: 5px;
+    }
+}
